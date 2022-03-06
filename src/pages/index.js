@@ -1,16 +1,28 @@
-import { Card, Button } from 'semantic-ui-react';
+import { Card, Button, Icon } from 'semantic-ui-react';
 import factory from '../../ethereum/factory';
 import Layout from 'src/components/Layout';
-
+import { Link } from '../hooks/routes';
 const Home = (props) => {
 
   const renderCampaigns = () => {
     const items = props.campaigns.map(
       address => {
         return {
-          header: address,
-          description: <a>View Campaign</a>,
-          fluid: true
+          header: <span
+            className="header"
+            style={{
+              whiteSpace: 'nowrap',
+              width: '100%',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
+            }}>{address}</span>,
+          description: (
+            <Link route={`campaign/${address}`}>
+              <a>View Campaign</a>
+            </Link>
+          ),
+          fluid: true,
+          color: 'green'
         }
       }
     );
@@ -19,15 +31,17 @@ const Home = (props) => {
 
   return (
     <Layout>
-      <link
-        async
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/semantic-ui@2/dist/semantic.min.css"
-      />
       <h3>Open Campaigns</h3>
-      <Button floated="right" content='Create Campaign' icon='add circle' primary />
+      <Link route="/campaign/new">
+        <a>
+          <Button floated="right" primary animated='fade'>
+            <Button.Content visible><Icon name='add circle' /> Create Campaign</Button.Content>
+            <Button.Content hidden><Icon name='handshake outline' size='large' /></Button.Content>
+          </Button>
+        </a>
+      </Link>
       {renderCampaigns()}
-      </Layout>
+    </Layout>
   )
 }
 

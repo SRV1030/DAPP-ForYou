@@ -1,13 +1,13 @@
 import { Container } from "semantic-ui-react";
 import HeaderNav from "./elements/HeaderNav";
 
-const Layout=(props)=>{
+const Layout = (props) => {
     return (
         <>
-         <Container>
-             <HeaderNav/>
-            {props.children}
-        </Container>
+            <Container>
+                <HeaderNav />
+                {props.children}
+            </Container>
         </>
     )
 }

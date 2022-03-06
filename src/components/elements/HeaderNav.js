@@ -1,20 +1,22 @@
 import { Menu } from "semantic-ui-react";
 
+import { Link } from '../../hooks/routes';
+
 const HeaderNav = () => {
     return (
-        <Menu style={{marginTop: '10px'}}>
-            <Menu.Item>
-                ForYou
-            </Menu.Item>
+        <Menu style={{ marginTop: '10px' }}>
+            <Link route="/">
+                <a className="item">ForYou</a>
+            </Link>
 
             <Menu.Menu position='right'>
-                <Menu.Item>
-                    Campaigns
-                </Menu.Item>
+                <Link route="/">
+                    <a className="item">Campaigns</a>
+                </Link>
 
-                <Menu.Item>
-                   +
-                </Menu.Item>
+                <Link route="/campaign/new">
+                    <a className="item">+</a>
+                </Link>
             </Menu.Menu>
         </Menu>
     )
