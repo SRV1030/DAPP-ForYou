@@ -6,7 +6,7 @@ import { Form, Button, Input, Message} from 'semantic-ui-react';
 import { useState } from "react";
 import factory from "../../../ethereum/factory";
 import web3 from "../../../ethereum/web3";
-import { Router } from '../../hooks/routes';
+import { Router } from '../../routes';
 
 const CampaignNew = () => {
     const [minimumContribution, setminimumContribution] = useState('');

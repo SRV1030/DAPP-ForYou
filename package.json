@@ -3,14 +3,15 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node src/hooks/server.js",
-    "build":"next build",
-    "start": "node src/hooks/server.js",
-    "lint": "next lint",
+    "lint": "next lint",    
+    "start": "node src/server.js",
+    "dev": "node src/server.js",
+    "build": "next build",
     "test": "mocha",
     "compile": "node ethereum/compile.js",
     "deploy": "node ethereum/deploy.js"
   },
+  
   "dependencies": {
     "next": "10.0.6",
     "react": "17.0.1",
