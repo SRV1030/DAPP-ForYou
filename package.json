@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node src/hooks/server.js",
     "build":"next build",
-    "start": "node src/hooks/server.js",
+    "start": " node src/hooks/server.js",
     "lint": "next lint",
     "test": "mocha",
     "compile": "node ethereum/compile.js",
