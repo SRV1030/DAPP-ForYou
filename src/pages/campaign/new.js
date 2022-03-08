@@ -1,8 +1,8 @@
 //host.campaign/new
 //create new campaign
 
-import Layout from "src/components/Layout";
-import { Form, Button, Input, Message, Container, Label, } from 'semantic-ui-react';
+import Layout from "../../components/Layout";
+import { Form, Button, Input, Message} from 'semantic-ui-react';
 import { useState } from "react";
 import factory from "../../../ethereum/factory";
 import web3 from "../../../ethereum/web3";

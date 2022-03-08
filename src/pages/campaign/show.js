@@ -1,10 +1,10 @@
-import Layout from "src/components/Layout";
+import Layout from "../../components/Layout";
 import Campaign from "../../../ethereum/campaign";
-import web3 from "ethereum/web3";
+import web3 from "../../../ethereum/web3";
 import { Card, Divider, Button, Grid } from "semantic-ui-react";
 import { Link } from '../../hooks/routes'
-import Header from "src/components/elements/Header";
-import ContributeForm from "src/components/templates/ContributeForm";
+import Header from "../../components/elements/Header";
+import ContributeForm from "../../components/templates/ContributeForm";
 
 const CampaignShow = (props) => {
   const { mc, cb, rc, ac, ma, ca } = props;

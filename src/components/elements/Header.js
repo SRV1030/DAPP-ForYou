@@ -1,5 +1,5 @@
 import { Divider, Button, Icon, Popup } from "semantic-ui-react";
-import { Link } from "@routes";
+import { Link } from "../../hooks/routes";
 
 const Header = ({ text, divider, style, add, back, route }) => {
     return(

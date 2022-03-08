@@ -1,8 +1,7 @@
 import { Table, Label, Button, Icon } from "semantic-ui-react";
-import web3 from "ethereum/web3";
-import Campaign from "ethereum/campaign";
+import web3 from "../../../ethereum/web3";
+import Campaign from "../../../ethereum/campaign";
 import { useState } from "react";
-import { add } from "lodash";
 
 const { Row, Cell } = Table;
 const RequestRow = (props) => {

@@ -1,6 +1,6 @@
 import { Card, Button, Icon } from 'semantic-ui-react';
 import factory from '../../ethereum/factory';
-import Layout from 'src/components/Layout';
+import Layout from '../components/Layout';
 import { Link } from '../hooks/routes';
 const Home = (props) => {
 

@@ -1,9 +1,9 @@
-import Layout from "src/components/Layout";
+import Layout from "../../../components/Layout";
 import { Table, Icon, Message } from "semantic-ui-react";
 import Campaign from "../.././../../ethereum/campaign";
 import ErrorPage from "next/error";
-import Header from "src/components/elements/Header";
-import RequestRow from "src/components/elements/RequestRow";
+import Header from "../../../components/elements/Header";
+import RequestRow from "../../../components/elements/RequestRow";
 import { useState } from "react";
 import {Router} from '../../../hooks/routes';
 
