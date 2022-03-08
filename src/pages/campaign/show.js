@@ -1,13 +1,14 @@
 import Layout from "src/components/Layout";
 import Campaign from "../../../ethereum/campaign";
 import web3 from "ethereum/web3";
-import { Card, Grid } from "semantic-ui-react";
+import { Card, Divider, Button, Grid } from "semantic-ui-react";
+import { Link } from '../../hooks/routes'
+import Header from "src/components/elements/Header";
 import ContributeForm from "src/components/templates/ContributeForm";
 
 const CampaignShow = (props) => {
-
+  const { mc, cb, rc, ac, ma, ca } = props;
   const renderCards = () => {
-    const { mc, cb, rc, ac, ma , ca} = props;
     const items = [
       {
         header: <span
@@ -47,7 +48,7 @@ const CampaignShow = (props) => {
       },
       {
         meta: <span style={{ marginBottom: '3px', textTransform: 'uppercase' }} className="meta">Contribute to this campaign</span>,
-        description: <ContributeForm mc={mc} contractaddress={ca} style={{ textAlign: 'center', marginTop: '4px' }}/>
+        description: <ContributeForm mc={mc} contractaddress={ca} style={{ textAlign: 'center', marginTop: '4px' }} />
       }
     ];
 
@@ -60,6 +61,29 @@ const CampaignShow = (props) => {
       <Layout>
         <h3>Campaign Element</h3>
         {renderCards()}
+        <Divider />
+        <Grid>
+          <Grid.Row>
+            <Grid.Column>
+              <Header style={{ marginTop: '5rem' }} text="Campaign Requests" divider />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Link route={`/campaign/${ca}/request`}>
+                <a>
+                  <Button
+                    style={{ display: 'flex', justifyContent: 'center' }}
+                    color='red'
+                    content='View Requests'
+                    icon='bullhorn'
+                    label={{ basic: true, color: 'red', pointing: 'left', content: rc }}
+                  />
+                </a>
+              </Link>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </Layout>
     </>
   )
