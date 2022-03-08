@@ -1,6 +1,6 @@
 import { Menu } from "semantic-ui-react";
 
-import { Link } from '../../hooks/routes';
+import { Link } from '../../routes';
 
 const HeaderNav = () => {
     return (

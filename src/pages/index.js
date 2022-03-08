@@ -1,7 +1,7 @@
 import { Card, Button, Icon } from 'semantic-ui-react';
 import factory from '../../ethereum/factory';
 import Layout from '../components/Layout';
-import { Link } from '../hooks/routes';
+import { Link } from '../routes';
 const Home = (props) => {
 
   const renderCampaigns = () => {

@@ -5,7 +5,7 @@ import ErrorPage from "next/error";
 import Header from "../../../components/elements/Header";
 import RequestRow from "../../../components/elements/RequestRow";
 import { useState } from "react";
-import {Router} from '../../../hooks/routes';
+import {Router} from '../../../routes';
 
 const { Header: HeaderTable, HeaderCell, Row, Body } = Table;
 const RequestIndex = (props) => {

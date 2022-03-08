@@ -2,7 +2,7 @@ import { Form, Button, Input, Label, Message, } from "semantic-ui-react";
 import { useState } from "react";
 import Campaign from "../../../ethereum/campaign";
 import web3 from "../../../ethereum/web3";
-import { Router } from "../../hooks/routes"
+import { Router } from "../../routes"
 
 const ContributeForm = (props) => {
     const [inputAmount, setinputAmount] = useState('');
