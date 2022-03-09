@@ -2,9 +2,10 @@ import { Form, Button, Input, Label, Message, } from "semantic-ui-react";
 import { useState } from "react";
 import Campaign from "../../../ethereum/campaign";
 import web3 from "../../../ethereum/web3";
-import { Router } from "../../routes"
+import { useRouter } from "next/router"
 
 const ContributeForm = (props) => {
+    const router = useRouter();
     const [inputAmount, setinputAmount] = useState('');
     const [loading, setloading] = useState(false)
     const [msg, setmsg] = useState({ header: '', message: '' });
@@ -37,7 +38,7 @@ const ContributeForm = (props) => {
 
             setmsg({ header: "Congratulations", message: "You've succssfully donated" });
             setTimeout(() => {
-                Router.replaceRoute('/campaign/' + contactAddress);
+                router.replace('/campaign/' + contactAddress);
                 setTimeout(() => {
                     setmsg({ header: '', message: '' });
                     setinputAmount('');

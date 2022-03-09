@@ -1,11 +1,11 @@
-import Layout from "../../../components/Layout";
+import Layout from "../../../../components/Layout";
 import { Table, Icon, Message } from "semantic-ui-react";
-import Campaign from "../.././../../ethereum/campaign";
+import Campaign from "../../../../../ethereum/campaign";
 import ErrorPage from "next/error";
-import Header from "../../../components/elements/Header";
-import RequestRow from "../../../components/elements/RequestRow";
+import Header from "../../../../components/elements/Header";
+import RequestRow from "../../../../components/elements/RequestRow";
 import { useState } from "react";
-import {Router} from '../../../routes';
+import { useRouter } from 'next/router';
 
 const { Header: HeaderTable, HeaderCell, Row, Body } = Table;
 const RequestIndex = (props) => {
@@ -13,12 +13,13 @@ const RequestIndex = (props) => {
         // ERROR HANDLING IF QUERY IS WRONGLY ENTERED
         return <ErrorPage statusCode={404} />
     }
+    const router=useRouter();
     const { address, requests, requestsCount, approversCount } = props;
     const [msg, setmsg] = useState({ header: '', message: '' });
     const callback = ( msgHeader, msgContent) => {
         setmsg({header:msgHeader,message:msgContent});
         setTimeout(() => {
-            Router.replaceRoute(`/campaign/${address}/request`);
+            router.replace(`/campaign/${address}/request`);
         }, 2000);
     }
     const renderRow = () => {
@@ -54,7 +55,7 @@ const RequestIndex = (props) => {
 
 export async function getServerSideProps(ctx) {
     try {
-        const address = ctx.query.address;
+        const address = ctx.params.address;
         const campaign = Campaign(address);
         const requestsCount = await campaign.methods.requestsCount().call();
         const approversCount = await campaign.methods.approversCount().call();
