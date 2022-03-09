@@ -6,9 +6,10 @@ import { Form, Button, Input, Message} from 'semantic-ui-react';
 import { useState } from "react";
 import factory from "../../../ethereum/factory";
 import web3 from "../../../ethereum/web3";
-import { Router } from '../../routes';
+import { useRouter } from 'next/router';
 
 const CampaignNew = () => {
+    const router = useRouter();
     const [minimumContribution, setminimumContribution] = useState('');
     const [loading, setloading] = useState(false)
     const [msg, setmsg] = useState({ header: '', message: '' });
@@ -37,7 +38,7 @@ const CampaignNew = () => {
             });
             setmsg({ header: "Congratulations", message: "You've created a campaign" });
             setTimeout(() => {
-                Router.pushRoute('/');
+                router.push('/');
             }, 1000);
         }
         catch (err) {

@@ -1,10 +1,10 @@
-import Layout from "../../components/Layout";
-import Campaign from "../../../ethereum/campaign";
-import web3 from "../../../ethereum/web3";
+import Layout from "../../../components/Layout";
+import Campaign from "../../../../ethereum/campaign";
+import web3 from "../../../../ethereum/web3";
 import { Card, Divider, Button, Grid } from "semantic-ui-react";
-import { Link } from '../../routes'
-import Header from "../../components/elements/Header";
-import ContributeForm from "../../components/templates/ContributeForm";
+import Link from 'next/link'
+import Header from "../../../components/elements/Header";
+import ContributeForm from "../../../components/templates/ContributeForm";
 
 const CampaignShow = (props) => {
   const { mc, cb, rc, ac, ma, ca } = props;
@@ -70,16 +70,14 @@ const CampaignShow = (props) => {
           </Grid.Row>
           <Grid.Row>
             <Grid.Column>
-              <Link route={`/campaign/${ca}/request`}>
-                <a>
-                  <Button
-                    style={{ display: 'flex', justifyContent: 'center' }}
-                    color='red'
-                    content='View Requests'
-                    icon='bullhorn'
-                    label={{ basic: true, color: 'red', pointing: 'left', content: rc }}
-                  />
-                </a>
+              <Link href={`/campaign/${ca}/request`}>
+                <Button
+                  style={{ display: 'flex', justifyContent: 'center' }}
+                  color='red'
+                  content='View Requests'
+                  icon='bullhorn'
+                  label={{ basic: true, color: 'red', pointing: 'left', content: rc }}
+                />
               </Link>
             </Grid.Column>
           </Grid.Row>
@@ -93,10 +91,10 @@ export async function getServerSideProps(context) {
   //   //should be used whe we need req,res or if we want to regenerate page multiple times
   // console.log(context);
   try {
-    const address = context.query.address;
+    const address = context.params.address;
+    console.log(address);
     const campaign = Campaign(address);
     const details = await campaign.methods.getCampaignDetails().call();
-    console.log(details);
     const {
       0: mc, // minimumContribution
       1: cb, // campaignBalance

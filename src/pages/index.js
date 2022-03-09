@@ -1,9 +1,8 @@
 import { Card, Button, Icon } from 'semantic-ui-react';
 import factory from '../../ethereum/factory';
 import Layout from '../components/Layout';
-import { Link } from '../routes';
+import Link  from 'next/link';
 const Home = (props) => {
-
   const renderCampaigns = () => {
     const items = props.campaigns.map(
       address => {
@@ -17,8 +16,8 @@ const Home = (props) => {
               textOverflow: 'ellipsis'
             }}>{address}</span>,
           description: (
-            <Link route={`campaign/${address}`}>
-              <a>View Campaign</a>
+            <Link href={`campaign/${address}`}>
+              View Campaign
             </Link>
           ),
           fluid: true,
@@ -30,18 +29,18 @@ const Home = (props) => {
   }
 
   return (
-    <Layout>
-      <h3>Open Campaigns</h3>
-      <Link route="/campaign/new">
-        <a>
+    <>
+      <Layout>
+        <h3>Open Campaigns</h3>
+        <Link href="/campaign/new">
           <Button floated="right" primary animated='fade'>
             <Button.Content visible><Icon name='add circle' /> Create Campaign</Button.Content>
             <Button.Content hidden><Icon name='handshake outline' size='large' /></Button.Content>
           </Button>
-        </a>
-      </Link>
-      {renderCampaigns()}
-    </Layout>
+        </Link>
+        {renderCampaigns()}
+      </Layout>
+    </>
   )
 }
 

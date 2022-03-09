@@ -1,9 +1,9 @@
-import Layout from "../../../components/Layout";
-import Header from "../../../components/elements/Header";
+import Layout from "../../../../components/Layout";
+import Header from "../../../../components/elements/Header";
 import { Form, Container, Button, Input, Message } from "semantic-ui-react";
 import { useState } from "react";
-import web3 from "../../../../ethereum/web3";
-import Campaign from "../../../../ethereum/campaign";
+import web3 from "../../../../../ethereum/web3";
+import Campaign from "../../../../../ethereum/campaign";
 
 const NewRequest = (props) => {
     const { address } = props;
@@ -143,7 +143,7 @@ const NewRequest = (props) => {
 }
 export async function getServerSideProps(ctx) {
     try {
-        const address = ctx.query.address;
+        const address = ctx.params.address;
         return {
             props: { address }
         }
